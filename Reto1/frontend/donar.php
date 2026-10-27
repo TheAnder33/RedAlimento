@@ -72,6 +72,8 @@
     </p>
     <p>
         <input type="submit" value="Enviar" name="enviar">
+        <input type="reset" value="Reset" name="Reset">
+        <button type="button" onclick="location.href='../index.html'">Cancelar</button>
     </p>
 </form>
 
