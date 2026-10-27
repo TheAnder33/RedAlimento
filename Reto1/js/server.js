@@ -5,6 +5,8 @@ app.use(express.json());
 
 let registros = [];
 let nextId = 1;
+let solicitudes = [];
+let nextSolicitudID  = 1;
 
 app.get('/api/registros', (req, res) => {
     let resultado = registros;
@@ -14,7 +16,7 @@ app.get('/api/registros', (req, res) => {
         const filtro = texto.toLowerCase();
         resultado = registros.filter(r => 
             Object.values(r).some(val => String(val).toLowerCase().includes(filtro))
-        );aaaa
+        );
     }
     res.status(200).json(resultado);
 });
@@ -84,6 +86,62 @@ app.put('/api/registros/:id', (req, res) => {
     };
 
     res.status(200).json(registros[index]);
+});
+
+app.get('/api/solicitudes',(req, res) => {
+    res.status(200).json(solicitudes);
+});
+
+app.post('/api/solicitudes',(req, res) => {
+    const {
+        alimento_id,
+        cantidad,
+        solicitante,
+        email,
+        observaciones
+    } = req.body;
+
+    const alimento = registros.find(r => r.id === Number(alimento_id));
+
+    if (!alimento) {
+        return res.status(404).json({
+            error: 'El alimento no existe'
+        });
+    }
+    const cantidadSolicitada = Number(cantidad);
+
+    //para comprobar la cantidad que haya
+    if(
+        !Number.isFinite(cantidadSolicitada) || cantidadSolicitada <=0 || cantidadSolicitada > Number(alimento.cantidad)
+    ) {
+        return res.status(400).json({
+            error: 'La cantidad que has solicitaddo no es valida'
+        });
+    }
+
+    if (
+        !solicitante ||
+        !email ||
+        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    ) {
+        return res.status(400).json({
+            error: 'No valido'
+        })
+    }
+
+    const nuevaSolicitudd = {
+        id: nextSolicitudID++,
+        alimento_id: alimento_id,
+        alimento: alimento.alimento,
+        cantidad: cantidadSolicitada,
+        unidad: alimento.unidad,
+        solicitante,
+        email,
+        observaciones: observaciones || '', estado: 'pendiente'
+    };
+    solicitudes.push(nuevaSolicitudd);
+
+    res.status(201).json(nuevaSolicitudd);
 });
 
 const PORT = process.env.PORT || 3000;
