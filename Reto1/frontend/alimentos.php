@@ -44,16 +44,19 @@ if (!is_array($alimentos)) {
                         <th>Tipo / Categoría</th>
                         <th>Cantidad</th>
                         <th>Fecha de Caducidad</th>
+                        <th>Acción</th>
+
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($alimentos as $item): ?>
                         <tr>
                             <td><?= htmlspecialchars($item['id'] ?? '-') ?></td>
-                            <td><?= htmlspecialchars($item['nombre'] ?? $item['descripcion'] ?? 'Sin especificación') ?></td>
+                            <td><?= htmlspecialchars($item['alimento'] ?? 'Sin nombre') ?></td>
                             <td><?= htmlspecialchars($item['tipo'] ?? $item['categoria'] ?? '-') ?></td>
                             <td><?= htmlspecialchars($item['cantidad'] ?? '-') ?></td>
                             <td><?= htmlspecialchars($item['caducidad'] ?? $item['fecha_caducidad'] ?? '-') ?></td>
+                            <td><a href="solicitar.php?alimento_id=<?= (int)$item['id']?>">Solicitar</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
