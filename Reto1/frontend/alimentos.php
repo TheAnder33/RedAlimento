@@ -44,7 +44,7 @@ if (!is_array($alimentos)) {
                         <th>Tipo / Categoría</th>
                         <th>Cantidad</th>
                         <th>Fecha de Caducidad</th>
-                        <th>Acción</th>
+                        <th colspan="3">Acciones</th>
 
                     </tr>
                 </thead>
@@ -57,6 +57,10 @@ if (!is_array($alimentos)) {
                             <td><?= htmlspecialchars($item['cantidad'] ?? '-') ?></td>
                             <td><?= htmlspecialchars($item['caducidad'] ?? $item['fecha_caducidad'] ?? '-') ?></td>
                             <td><a href="solicitar.php?alimento_id=<?= (int)$item['id']?>">Solicitar</a></td>
+                            <td><a href="editar.php?id=<?= $item['id'] ?>">Modificar</a></td>
+                            <td>
+                                <a href="../php/eliminar.php?id=<?= $item['id'] ?>" onclick="return confirm('¿Estás seguro de que deseas eliminar este alimento?');" style="color: red;">Eliminar</a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

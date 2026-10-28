@@ -11,11 +11,11 @@
 <form action="./../php/guardar.php" method="post">
     <p>
         <b><label for="alimento">Nombre del alimento: </label></b><br>
-        <input type="text" id="alimento" name="alimento">
+        <input type="text" id="alimento" name="alimento" required>
     </p>
    <p>
         <label for="categoria_select"><b>Categoría:</b></label><br>
-        <select id="categoria_select" name="categoria">
+        <select id="categoria_select" name="categoria" required>
             <option value="" disabled selected>Selecciona una categoría...</option>
             <option value="lacteos">Lácteos (leche, queso, yogur)</option>
             <option value="carnes_pescados_huevos">Carnes, pescados y huevos</option>
@@ -28,43 +28,43 @@
     </p>
     <p>
         <b><label for="cantidad">Cantidad: </label></b><br>
-        <input type="numer" id="cantidad" name="cantidad">
+        <input type="numer" id="cantidad" name="cantidad" required>
     </p>
     <p>
         <b>Unidad:</b><br>
         
-        <input type="radio" id="kg" name="unidad" value="kg"> 
+        <input type="radio" id="kg" name="unidad" value="kg" required> 
         <label for="kg">kg</label><br>
 
-        <input type="radio" id="unidades" name="unidad" value="unidades"> 
+        <input type="radio" id="unidades" name="unidad" value="unidades" required> 
         <label for="unidades">unidades</label><br>
 
-        <input type="radio" id="paquetes" name="unidad" value="paquetes"> 
+        <input type="radio" id="paquetes" name="unidad" value="paquetes" required> 
         <label for="paquetes">paquetes</label>
     </p>
     <p>
         <label for="fecha_caducidad"><b>Fecha de caducidad:</b></label><br>
-        <input type="date" id="fecha_caducidad" name="fecha_caducidad">
+        <input type="date" id="fecha_caducidad" name="fecha_caducidad" required>
     </p>
     <p>
         <b>Tipo de conservación:</b><br>
         
-        <input type="radio" id="ambiente" name="conservacion" value="ambiente"> 
+        <input type="radio" id="ambiente" name="conservacion" value="ambiente" required> 
         <label for="ambiente">Ambiente</label><br>
 
-        <input type="radio" id="refrigerado" name="conservacion" value="refrigerado"> 
+        <input type="radio" id="refrigerado" name="conservacion" value="refrigerado" required> 
         <label for="refrigerado">Refrigerado</label><br>
 
-        <input type="radio" id="congelado" name="conservacion" value="congelado"> 
+        <input type="radio" id="congelado" name="conservacion" value="congelado" required> 
         <label for="congelado">Congelado</label>
     </p>
      <p>
         <b><label for="punto_recogida">Punto de recogida: </label></b><br>
-        <input type="text" id="punto_recogida" name="punto_recogida">
+        <input type="text" id="punto_recogida" name="punto_recogida" required>
     </p>
     <p>
         <b><label for="email">Email: </label></b><br>
-        <input type="text" id="email" name="email">
+        <input type="email" id="email" name="email" required>
     </p>
     <p>
         <label for="descripcion"><b>Descripción:</b></label><br>

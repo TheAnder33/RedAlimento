@@ -53,17 +53,13 @@ if(!is_array($resultado) || !isset($resultado['id'])) {
     if (is_array($resultado) && isset($resultado['error'])) {
         echo '<p>' . htmlspecialchars($resultado['error']) . '</p>';
     }
-
     echo '<a href="../frontend/solicitar.php">Volver</a>';
 
     exit;
 }
     echo '<h1>Solicitud registrada correctamente</h1>';
-
     echo '<p> Numero de solicitud: ' . (int)$resultado['id'] . '</p>';
-
     echo '<p> Estado: Pendiente </p>';
-
     echo '<a href="../index.html">Volver</a>';
 
 

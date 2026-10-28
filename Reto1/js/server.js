@@ -8,6 +8,13 @@ let nextId = 1;
 let solicitudes = [];
 let nextSolicitudID  = 1;
 
+function reindexarRegistros() {
+    registros.forEach((item, index) => {
+        item.id = index + 1;
+    });
+    nextId = registros.length + 1;
+}
+
 app.get('/api/registros', (req, res) => {
     let resultado = registros;
     const texto = req.query.texto;
@@ -39,7 +46,7 @@ app.post('/api/registros', (req, res) => {
     }
 
     const nuevoRegistro = {
-        id: nextId++,
+        id: 0,
         alimento,
         categoria,
         cantidad,
@@ -53,9 +60,13 @@ app.post('/api/registros', (req, res) => {
 
     registros.push(nuevoRegistro);
     
+    reindexarRegistros();
+
+    const registroCreado = registros[registros.length - 1];
+
     res.status(201)
-       .header('Location', `/api/registros/${nuevoRegistro.id}`)
-       .json(nuevoRegistro);
+       .header('Location', `/api/registros/${registroCreado.id}`)
+       .json(registroCreado);
 });
 
 app.put('/api/registros/:id', (req, res) => {
@@ -142,6 +153,21 @@ app.post('/api/solicitudes',(req, res) => {
     solicitudes.push(nuevaSolicitudd);
 
     res.status(201).json(nuevaSolicitudd);
+});
+
+app.delete('/api/registros/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const index = registros.findIndex(r => r.id === id);
+    
+    if (index === -1) {
+        return res.status(404).json({ error: 'Registro no encontrado' });
+    }
+
+    const eliminado = registros.splice(index, 1);
+
+    reindexarRegistros();
+
+    res.status(200).json(eliminado[0]);
 });
 
 const PORT = process.env.PORT || 3000;
