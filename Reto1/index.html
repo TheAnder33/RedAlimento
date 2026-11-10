@@ -1,39 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RedAlimento</title>
     <link rel="stylesheet" type="text/css" href="./css/styles.css">
-</style>
 </head>
-<header class="main-header">
-    <div class="header-container">
-        <div class="logo-container">
-            <img class="logo" src="logo.png" alt="RedAlimento" >
-            <spam class="nombre">RedAlimento</spam>
-        </div>
-        <nav class="navbar">
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            
-            <li class="submenu">
-                <a href="#" class="desplegable">Formularios <span class="flecha">&#9662;</span></a>
-                <ul class="menu-desplegable">
-                    <li><a href="./frontend/donar.php">Donar</a></li>
-                    <li><a href="./frontend/solicitar.php">Solicitar</a></li>
-                </ul>
-            </li>
-
-            <li><a href="./frontend/alimentos.php">Alimentos</a></li>
-        </ul>
-    </nav>
-    </div>
-</header>
 <body>
-    
-</body>
-<footer>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img class="logo" src="logo.png" alt="RedAlimento">
+                <span class="nombre">RedAlimento</span>
+            </div>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    
+                    <li class="submenu">
+                        <a href="#" class="desplegable">Formularios <span class="flecha">&#9662;</span></a>
+                        <ul class="menu-desplegable">
+                            <li><a href="./frontend/donar.php">Donar</a></li>
+                            <li><a href="./frontend/solicitar.php">Solicitar</a></li>
+                        </ul>
+                    </li>
 
-</footer>
+                    <li><a href="./frontend/alimentos.php">Alimentos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio">
+            <h1>Dona alimentos, ayuda a quienes lo necesitan</h1>
+            <p>
+                En RedAlimento queremos facilitar las donaciones
+                de alimentos y ayudar a reducir el desperdicio alimentario.
+            </p>
+            <p>
+                Tu pequeña aportación puede marcar una gran diferencia.
+            </p>
+            <a href="frontend/donar.php">Donar alimentos</a>
+            <a href="frontend/alimentos.php">Ver alimentos disponibles</a>
+        </section>
+
+        <section id="funciones">
+            <h2>¿Qué puedes hacer en RedAlimento?</h2>
+
+            <article>
+                <h3>Donar alimentos</h3>
+                <p>
+                    Publica los alimentos que quieres donar
+                    para que otras personas puedan solicitarlos.
+                </p>
+                <a href="frontend/donar.php">Donar</a>
+            </article>
+            <article>
+                <h3>Consultar alimentos</h3>
+                <p>
+                    Consulta los alimentos disponibles
+                    y sus cantidades.
+                </p>
+                <a href="frontend/alimentos.php">Consultar</a>
+            </article>
+            <article>
+                <h3>Solicitar alimentos</h3>
+                <p>
+                    Selecciona un alimento y envía una solicitud
+                    indicando la cantidad que necesitas.
+                </p>
+                <a href="frontend/solicitar.php">Solicitar</a>
+            </article>
+        </section>
+
+        <section id="ods">
+            <h2>Nuestros Objetivos de Desarrollo Sostenible</h2>
+            <article>
+                <h3>ODS 2 - Hambre cero</h3>
+                <p>
+                    Queremos facilitar el acceso a los alimentos
+                    mediante donaciones solidarias.
+                </p>
+            </article>
+            <article>
+                <h3>ODS 12 - Producción y consumo responsables</h3>
+                <p>
+                    Buscamos reducir el desperdicio alimentario
+                    y aprovechar los alimentos disponibles.
+                </p>
+            </article>
+        </section>
+
+        <section id="galeria">
+            <h2>Compartir alimentos es compartir felicidad</h2>
+            <p>
+                Cada donación es una oportunidad para ayudar
+                a otras personas.
+            </p>
+            <div>
+                <img src="img/foto1.jpg"
+                     alt="Personas compartiendo alimentos"
+                     width="300">
+                <img src="img/foto2.jpg"
+                     alt="Voluntarios preparando alimentos"
+                     width="300">
+                <img src="img/foto3.jpg"
+                     alt="Personas recibiendo alimentos"
+                     width="300">
+            </div>
+        </section>
+
+        <section id="solicitudes">
+            <h2>Solicitudes de alimentos</h2>
+            <p>
+                Consulta las necesidades de alimentos
+                y participa ayudando a otras personas.
+            </p>
+            <p>
+                Próximamente mostraremos aquí las solicitudes
+                registradas en RedAlimento.
+            </p>
+            <a href="frontend/solicitar.php">
+                Realizar una solicitud
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <h3>RedAlimento</h3>
+        <p>
+            Proyecto educativo relacionado con los
+            Objetivos de Desarrollo Sostenible.
+        </p>
+        <p>
+            ODS 2 - Hambre cero |
+            ODS 12 - Consumo responsable
+        </p>
+        <p>2026 - RedAlimento</p>
+    </footer>
+
+</body>
 </html>

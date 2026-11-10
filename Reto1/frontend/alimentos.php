@@ -1,11 +1,15 @@
 <?php
 require_once './../php/api.php';
+require_once './../php/funciones.php';
 
 $alimentos = llamarApi('GET', API_URL);
 
 if (!is_array($alimentos)) {
     $alimentos = [];
 }
+
+mostrarHeader("RedAlimento - Listado de Alimentos");
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -13,30 +17,16 @@ if (!is_array($alimentos)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RedAlimento - Listado de Alimentos</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/alimentos.css">
 </head>
-<header class="main-header">
-     <div class="header-container">
-        <div class="logo-container">
-            <img class="logo" src="logo.png" alt="RedAlimento" >
-            <spam class="nombre">RedAlimento</spam>
-        </div>
-        <nav class="navbar">
-            <ul class="nav-links">
-                <li><a href="./../index.html">Inicio</a></li>
-                <li><a href="./../frontend/donar.php">Registrar Alimento</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-<body>
+<body class="body-alimentos">
     <main>
         <h2>Listado de Alimentos Donados</h2>
 
         <?php if (empty($alimentos)): ?>
             <p>No hay alimentos registrados en este momento.</p>
         <?php else: ?>
-            <table border="1" cellpadding="10" cellspacing="0">
+            <table>
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -44,8 +34,7 @@ if (!is_array($alimentos)) {
                         <th>Tipo / Categoría</th>
                         <th>Cantidad</th>
                         <th>Fecha de Caducidad</th>
-                        <th colspan="3">Acciones</th>
-
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,10 +45,12 @@ if (!is_array($alimentos)) {
                             <td><?= htmlspecialchars($item['tipo'] ?? $item['categoria'] ?? '-') ?></td>
                             <td><?= htmlspecialchars($item['cantidad'] ?? '-') ?></td>
                             <td><?= htmlspecialchars($item['caducidad'] ?? $item['fecha_caducidad'] ?? '-') ?></td>
-                            <td><a href="solicitar.php?alimento_id=<?= (int)$item['id']?>">Solicitar</a></td>
-                            <td><a href="editar.php?id=<?= $item['id'] ?>">Modificar</a></td>
                             <td>
-                                <a href="../php/eliminar.php?id=<?= $item['id'] ?>" onclick="return confirm('¿Estás seguro de que deseas eliminar este alimento?');" style="color: red;">Eliminar</a>
+                                <div class="acciones-container">
+                                    <a class="btn-solicitar" href="solicitar.php?alimento_id=<?= (int)$item['id']?>">Solicitar</a>
+                                    <a class="btn-edit" href="editar.php?id=<?= $item['id'] ?>">Modificar</a>
+                                    <a class="btn-delete" href="../php/eliminar.php?id=<?= $item['id'] ?>" onclick="return confirm('¿Estás seguro de que deseas eliminar este alimento?');">Eliminar</a>
+                                </div>  
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -67,6 +58,8 @@ if (!is_array($alimentos)) {
             </table>
         <?php endif; ?>
     </main>
-
+    <?php
+        mostrarFooter();
+    ?>
 </body>
 </html>
