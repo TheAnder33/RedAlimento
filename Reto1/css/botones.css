@@ -1,0 +1,105 @@
+.acciones-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+.btn-solicitar, 
+.btn-edit, 
+.btn-delete, 
+.btn {
+    color: white; 
+    text-decoration: none;
+    padding: 8px 16px; 
+    border-radius: 6px; 
+    font-size: 13px; 
+    font-weight: bold; 
+    display: inline-block;
+    transition: background 0.2s, filter 0.2s;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+.btn-solicitar { background: #34495e; }
+.btn-edit { background: #5B80A4; }
+.btn-delete { background: #962d22; }
+.btn { background: #4A6987; }
+
+.btn-solicitar:hover, 
+.btn-edit:hover, 
+.btn-delete:hover, 
+.btn:hover {
+    text-decoration: underline;
+    filter: brightness(0.9);
+    transition:  all 0.25s ease;
+    transform: scale(1.02);
+}
+form input[type="submit"],
+form input[type="reset"],
+form button,
+form .btn-solicitar,
+form .btn-edit,
+form .btn-delete,
+form .btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 1rem;
+}
+form .form-acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 25px;
+}
+form a.btn-cancelar-centrado,
+form .btn-cancelar-centrado {
+    display: block;
+    width: 100%;
+    margin: 0 auto; 
+    background: #7f8c8d;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    box-sizing: border-box;
+    transition: background 0.2s, text-decoration 0.2s;
+}
+form a.btn-cancelar-centrado:hover,
+form .btn-cancelar-centrado:hover {
+    background: #707c7d;
+    transition:  all 0.25s ease;
+    transform: scale(1.02);
+    text-decoration: underline;
+}
+.btn-container {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-top: 20px;
+}
+.btn-ver { 
+    background: #16a085; 
+    color: white; 
+    text-decoration: none;
+    padding: 8px 16px; 
+    border-radius: 6px; 
+    font-size: 13px; 
+    font-weight: bold; 
+    display: inline-block;
+    transition: background 0.2s, filter 0.2s;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+.btn-ver:hover {
+    text-decoration: underline;
+    filter: brightness(0.9);
+    transform: scale(1.02);
+}

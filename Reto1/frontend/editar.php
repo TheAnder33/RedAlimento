@@ -16,74 +16,86 @@
         echo '<a href="alimentos.php">Volver al listado</a>';
         exit;
     }
-    mostrarHeader("RedAlimento - Listado de Alimentos");
-
+    
+    mostrarHeader("RedAlimento - Modificar Alimento");
 ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>RedAlimento - Modificar Alimento</title>
-    <link rel="stylesheet" href="../css/editar.css">
-</head>
-<body>
-    <div>
-        <h2>Modificar Alimento (ID: <?= $alimento['id'] ?>)</h2>
 
-        <form action="../php/actualizar.php?id=<?= $alimento['id'] ?>" method="POST">
-            <p>
-                <label>Alimento:</label><br>
-                <input type="text" name="alimento" value="<?= htmlspecialchars($alimento['alimento']) ?>">
-            </p>
-        <p>
-                <label for="categoria_select"><b>Categoría:</b></label><br>
-                <select id="categoria_select" name="categoria">
-                    <option value="" disabled selected>Selecciona una categoría...</option>
-                    <option value="lacteos">Lácteos (leche, queso, yogur)</option>
-                    <option value="carnes_pescados_huevos">Carnes, pescados y huevos</option>
-                    <option value="tuberculos_legumbres_frutossecos">Tubérculos, legumbres y frutos secos</option>
-                    <option value="verduras_hortalizas">Verduras y hortalizas</option>
-                    <option value="frutas">Frutas</option>
-                    <option value="pan_pasta_cereales_azucar">Pan, pasta, cereales y azúcar</option>
-                    <option value="grasas_aceites_mantequillas">Grasas, aceites y mantequillas</option>
-                </select>
-            </p>
-            <p>
-                <label>Cantidad:</label><br>
-                <input type="number" name="cantidad" value="<?= htmlspecialchars($alimento['cantidad']) ?>">
-            </p>
-            <p>
-                <label>Unidad:</label><br>
-                <input type="text" name="unidad" value="<?= htmlspecialchars($alimento['unidad']) ?>">
-            </p>
-            <p>
-                <label>Fecha de Caducidad:</label><br>
-                <input type="date" name="fecha_caducidad" value="<?= htmlspecialchars($alimento['fecha_caducidad']) ?>">
-            </p>
-            <p>
-                <label>Conservación:</label><br>
-                <input type="text" name="conservacion" value="<?= htmlspecialchars($alimento['conservacion']) ?>">
-            </p>
-            <p>
-                <label>Punto de Recogida:</label><br>
-                <input type="text" name="punto_recogida" value="<?= htmlspecialchars($alimento['punto_recogida']) ?>">
-            </p>
-            <p>
-                <label>Email:</label><br>
-                <input type="text" name="email" value="<?= htmlspecialchars($alimento['email']) ?>">
-            </p>
-            <p>
-                <label>Descripción:</label><br>
-                <textarea name="descripcion"><?= htmlspecialchars($alimento['descripcion']) ?></textarea>
-            </p>
-            <p>
-                <input type="submit" value="Guardar Cambios">
-                <a href="alimentos.php"><button type="button">Cancelar</button></a>
-            </p>
-        </form>
+<h2>Modificar Alimento (ID: <?= $alimento['id'] ?>)</h2>
+
+<form action="../php/actualizar.php?id=<?= $alimento['id'] ?>" method="POST">
+    <p>
+        <label>Alimento:</label>
+        <input type="text" name="alimento" value="<?= htmlspecialchars($alimento['alimento']) ?>">
+    </p>
+    <p>
+        <label for="categoria_select"><b>Categoría:</b></label>
+        <select id="categoria_select" name="categoria">
+            <option value="" disabled selected>Selecciona una categoría...</option>
+            <option value="lacteos" <?= ($alimento['categoria'] ?? '') === 'lacteos' ? 'selected' : '' ?>>Lácteos (leche, queso, yogur)</option>
+            <option value="carnes_pescados_huevos" <?= ($alimento['categoria'] ?? '') === 'carnes_pescados_huevos' ? 'selected' : '' ?>>Carnes, pescados y huevos</option>
+            <option value="tuberculos_legumbres_frutossecos" <?= ($alimento['categoria'] ?? '') === 'tuberculos_legumbres_frutossecos' ? 'selected' : '' ?>>Tubérculos, legumbres y frutos secos</option>
+            <option value="verduras_hortalizas" <?= ($alimento['categoria'] ?? '') === 'verduras_hortalizas' ? 'selected' : '' ?>>Verduras y hortalizas</option>
+            <option value="frutas" <?= ($alimento['categoria'] ?? '') === 'frutas' ? 'selected' : '' ?>>Frutas</option>
+            <option value="pan_pasta_cereales_azucar" <?= ($alimento['categoria'] ?? '') === 'pan_pasta_cereales_azucar' ? 'selected' : '' ?>>Pan, pasta, cereales y azúcar</option>
+            <option value="grasas_aceites_mantequillas" <?= ($alimento['categoria'] ?? '') === 'grasas_aceites_mantequillas' ? 'selected' : '' ?>>Grasas, aceites y mantequillas</option>
+        </select>
+    </p>
+    <p>
+        <label>Cantidad:</label>
+        <input type="number" name="cantidad" value="<?= htmlspecialchars($alimento['cantidad']) ?>">
+    </p>
+    <p>
+        <label><b>Unidad:</b></label>
+        <div class="radio-group">
+            <label class="radio-option">
+                <input type="radio" id="kg" name="unidad" value="kg"> kg
+            </label>
+            <label class="radio-option">
+                <input type="radio" id="unidades" name="unidad" value="unidades"> Unidades
+            </label>
+            <label class="radio-option">
+                <input type="radio" id="paquetes" name="unidad" value="paquetes"> Paquetes
+            </label>
+        </div>
+    </p>
+    <p>
+        <label>Fecha de Caducidad:</label>
+        <input type="date" name="fecha_caducidad" value="<?= htmlspecialchars($alimento['fecha_caducidad']) ?>">
+    </p>
+    <p>
+        <label><b>Tipo de conservación:</b></label>
+        <div class="radio-group">
+            <label class="radio-option">
+                <input type="radio" id="ambiente" name="conservacion" value="ambiente"> Ambiente
+            </label>
+            <label class="radio-option">
+                <input type="radio" id="refrigerado" name="conservacion" value="refrigerado"> Refrigerado
+            </label>
+            <label class="radio-option">
+                <input type="radio" id="congelado" name="conservacion" value="congelado"> Congelado
+            </label>
+        </div>
+    </p>
+    <p>
+        <label>Punto de Recogida:</label>
+        <input type="text" name="punto_recogida" value="<?= htmlspecialchars($alimento['punto_recogida']) ?>">
+    </p>
+    <p>
+        <label>Email:</label>
+        <input type="text" name="email" value="<?= htmlspecialchars($alimento['email']) ?>">
+    </p>
+    <p>
+        <label>Descripción:</label>
+        <textarea name="descripcion"><?= htmlspecialchars($alimento['descripcion']) ?></textarea>
+    </p>
+    <div class="form-acciones">
+        <input type="submit" value="Guardar Cambios" class="btn-edit" style="border: none; cursor: pointer;">
     </div>
-    <?php
-        mostrarFooter();
-    ?>
-</body>
-</html>
+    <div>
+        <a href="alimentos.php" class="btn-cancelar-centrado">Cancelar</a>
+    </div>
+</form>
+
+<?php
+    mostrarFooter();
+?>
