@@ -46,7 +46,7 @@ function mostrarHeader($titulo = "RedAlimento", $cssPath = "../css/alimentos.css
 function mostrarFooter() {
     ?>
     </main>
-    <footer>
+    <footer class="site-footer">
         <h3>RedAlimento</h3>
         <p>
             Proyecto educativo relacionado con los
@@ -57,6 +57,13 @@ function mostrarFooter() {
             ODS 12 - Consumo responsable
         </p>
         <p>2026 - RedAlimento</p>
+
+        <div class="audio-footer-izq" aria-label="Reproductor de música">
+            <audio controls preload="metadata">
+                <source src="./../src/audios/lo-fi_musica.mp3" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+        </div>
     </footer>
     </body>
     </html>
