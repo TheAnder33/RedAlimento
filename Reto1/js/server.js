@@ -3,6 +3,8 @@ const app = express();
 
 app.use(express.json());
 
+app.set('json spaces', 2);
+
 let registros = [];
 let nextId = 1;
 let solicitudes = [];
@@ -25,6 +27,17 @@ app.get('/api/registros', (req, res) => {
             Object.values(r).some(val => String(val).toLowerCase().includes(filtro))
         );
     }
+    const categoria = req.query.categoria;
+
+    if (categoria) {
+        const cat = categoria.toLowerCase();
+        resultado = resultado.filter(r => String(r.categoria).toLowerCase() === cat);
+    }
+
+    if ((texto || categoria) && resultado.length === 0) {
+        return res.status(404).json({ error: 'Error 404 : Alimento no encontrado' });
+    }
+
     res.status(200).json(resultado);
 });
 
@@ -33,7 +46,7 @@ app.get('/api/registros/:id', (req, res) => {
     const registro = registros.find(r => r.id === id);
     
     if (!registro) {
-        return res.status(404).json({ error: 'Registro no encontrado' });
+        return res.status(404).json({ error: 'Error 404 : Registro no encontrado' });
     }
     res.status(200).json(registro);
 });
@@ -42,7 +55,7 @@ app.post('/api/registros', (req, res) => {
     const { alimento, categoria, cantidad, unidad, fecha_caducidad, conservacion, punto_recogida, email, descripcion } = req.body;
     
     if (!alimento || !categoria || !cantidad) {
-        return res.status(400).json({ error: 'Faltan campos obligatorios (alimento, categoría o cantidad)' });
+        return res.status(400).json({ error: 'Error 400 : Faltan campos obligatorios (alimento, categoría o cantidad)' });
     }
 
     const nuevoRegistro = {
@@ -74,13 +87,13 @@ app.put('/api/registros/:id', (req, res) => {
     const index = registros.findIndex(r => r.id === id);
     
     if (index === -1) {
-        return res.status(404).json({ error: 'Registro no encontrado' });
+        return res.status(404).json({ error: 'Error 404 : Registro no encontrado' });
     }
 
     const { alimento, categoria, cantidad, unidad, fecha_caducidad, conservacion, punto_recogida, email, descripcion } = req.body;
 
     if (!alimento || !categoria || !cantidad) {
-        return res.status(400).json({ error: 'Faltan campos obligatorios' });
+        return res.status(400).json({ error: 'Error 400 : Faltan campos obligatorios' });
     }
 
     registros[index] = {
@@ -103,12 +116,23 @@ app.get('/api/solicitudes',(req, res) => {
     res.status(200).json(solicitudes);
 });
 
+app.get('/api/solicitudes/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const solicitud = solicitudes.find(s => s.id === id);
+
+    if (!solicitud) {
+        return res.status(404).json({ error: 'Error 404 : Solicitud no encontrada' });
+    }
+    res.status(200).json(solicitud);
+});
+
 app.post('/api/solicitudes',(req, res) => {
     const {
         alimento_id,
         cantidad,
         solicitante,
         email,
+        importancia,
         observaciones
     } = req.body;
 
@@ -116,7 +140,7 @@ app.post('/api/solicitudes',(req, res) => {
 
     if (!alimento) {
         return res.status(404).json({
-            error: 'El alimento no existe'
+            error: 'Error 404 : El alimento no existe'
         });
     }
     const cantidadSolicitada = Number(cantidad);
@@ -126,7 +150,7 @@ app.post('/api/solicitudes',(req, res) => {
         !Number.isFinite(cantidadSolicitada) || cantidadSolicitada <=0 || cantidadSolicitada > Number(alimento.cantidad)
     ) {
         return res.status(400).json({
-            error: 'La cantidad que has solicitaddo no es valida'
+            error: 'Error 400 : La cantidad que has solicitaddo no es valida'
         });
     }
 
@@ -136,7 +160,7 @@ app.post('/api/solicitudes',(req, res) => {
         !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     ) {
         return res.status(400).json({
-            error: 'No valido'
+            error: 'Error 400 : No valido'
         })
     }
 
@@ -148,6 +172,7 @@ app.post('/api/solicitudes',(req, res) => {
         unidad: alimento.unidad,
         solicitante,
         email,
+        importancia: importancia ? Number(importancia) : 1,
         observaciones: observaciones || '', estado: 'pendiente'
     };
     solicitudes.push(nuevaSolicitudd);
@@ -160,7 +185,7 @@ app.delete('/api/registros/:id', (req, res) => {
     const index = registros.findIndex(r => r.id === id);
     
     if (index === -1) {
-        return res.status(404).json({ error: 'Registro no encontrado' });
+        return res.status(404).json({ error: 'Error 404 : Registro no encontrado' });
     }
 
     const eliminado = registros.splice(index, 1);
@@ -168,6 +193,10 @@ app.delete('/api/registros/:id', (req, res) => {
     reindexarRegistros();
 
     res.status(200).json(eliminado[0]);
+});
+
+app.use((req, res) => {
+    res.status(404).json({ error: 'Error 404 : Ruta no encontrada' });
 });
 
 const PORT = process.env.PORT || 3000;

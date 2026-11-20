@@ -46,9 +46,23 @@
             $hayError = true;
         }
 
+        $fechaISO = "";
         if ($fecha_caducidad === "") {
             echo "<p class='error'>No se ha introducido la fecha de caducidad.</p>";
             $hayError = true;
+        } elseif (!preg_match('/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/', $fecha_caducidad, $m)) {
+            echo "<p class='error'>La fecha de caducidad debe tener el formato DD/MM/AAAA (por ejemplo, 25/12/2026).</p>";
+            $hayError = true;
+        } elseif (!checkdate((int)$m[2], (int)$m[1], (int)$m[3])) {
+            echo "<p class='error'>La fecha de caducidad no existe en el calendario.</p>";
+            $hayError = true;
+        } else {
+            $fechaISO = sprintf('%04d-%02d-%02d', $m[3], $m[2], $m[1]);
+            $hoy = (new DateTime('today', new DateTimeZone('Europe/Madrid')))->format('Y-m-d');
+            if ($fechaISO < $hoy) {
+                echo "<p class='error'>El alimento ya está caducado: la fecha de caducidad no puede ser anterior a hoy.</p>";
+                $hayError = true;
+            }
         }
 
         if ($conservacion === "") {
@@ -77,7 +91,7 @@
                 'categoria' => $categoria,
                 'cantidad' => $cantidad,
                 'unidad' => $unidad,
-                'fecha_caducidad' => $fecha_caducidad,
+                'fecha_caducidad' => $fechaISO,
                 'conservacion' => $conservacion,
                 'punto_recogida' => $punto_recogida,
                 'email' => $email,

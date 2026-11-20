@@ -14,7 +14,7 @@
     <header class="main-header">
         <div class="header-container">
             <div class="logo-container">
-                <img class="logo" src="logo.png" alt="RedAlimento">
+                <a href="./index.html"><img class="logo" src="./src/logo.jpeg" alt="RedAlimento"></a>
                 <span class="nombre">RedAlimento</span>
             </div>
             <nav class="navbar">
@@ -52,21 +52,21 @@
             <div class="grid-features">
                 <article class="card-feature">
                     <div>
-                        <h3>📦 Donar alimentos</h3>
+                        <h3>Donar alimentos</h3>
                         <p>Publica los alimentos que quieres donar para que otras personas puedan solicitarlos fácilmente.</p>
                     </div>
                     <a href="frontend/donar.php">Ir a Donar →</a>
                 </article>
                 <article class="card-feature">
                     <div>
-                        <h3>📋 Consultar alimentos</h3>
+                        <h3>Consultar alimentos</h3>
                         <p>Revisa el listado de alimentos disponibles, sus tipos, categorías y cantidades en tiempo real.</p>
                     </div>
                     <a href="frontend/alimentos.php">Consultar lista →</a>
                 </article>
                 <article class="card-feature">
                     <div>
-                        <h3>🤝 Solicitar alimentos</h3>
+                        <h3>Solicitar alimentos</h3>
                         <p>Selecciona un alimento disponible y envía una solicitud formal indicando la cantidad que necesitas.</p>
                     </div>
                     <a href="frontend/solicitar.php">Solicitar ahora →</a>
@@ -76,15 +76,25 @@
 
         <section id="ods">
             <h2>Nuestros Objetivos de Desarrollo Sostenible</h2>
+
             <div class="grid-features">
+
                 <article class="card-feature">
-                    <h3>🌍 ODS 2 - Hambre cero</h3>
+                    <h3>ODS 2 - Hambre cero</h3>
                     <p>Facilitamos el acceso a recursos alimentarios básicos mediante redes de donación solidaria.</p>
+                    <canvas id="ods2" class="img-ods" width="1024" height="1024">
+                        ODS 2 Hambre Cero
+                    </canvas>
                 </article>
+
                 <article class="card-feature">
-                    <h3>♻️ ODS 12 - Consumo responsable</h3>
+                    <h3>ODS 12 - Consumo responsable</h3>
                     <p>Buscamos activamente reducir el desperdicio alimentario aprovechando excedentes de forma eficiente.</p>
+                    <canvas id="ods12" class="img-ods" width="1024" height="1024">
+                        ODS 12 Consumo Responsable
+                    </canvas>
                 </article>
+
             </div>
         </section>
 
@@ -97,6 +107,17 @@
                 <img src="img/foto3.jpg" alt="Personas recibiendo alimentos">
             </div>
         </section>
+        <section class="video-section">
+            <h2>¿Qué es un Banco de Alimentos?</h2>
+            <p>Descubre cómo trabajamos cada día para recolectar, almacenar y repartir esperanza entre quienes más lo necesitan.</p>
+            
+            <div class="video-container">
+                <video controls>
+                    <source src="./src/videos/¿Qué es un Banco de Alimentos.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de vídeos.
+                </video> 
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -105,5 +126,7 @@
         <p>ODS 2 - Hambre cero | ODS 12 - Consumo responsable</p>
         <p style="margin-top: 10px; font-weight: bold; color: #cbd5e1;">2026 - RedAlimento</p>
     </footer>
+    
+    <script src="./js/canvas.js"></script>
 </body>
 </html>

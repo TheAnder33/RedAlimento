@@ -1,14 +1,14 @@
 <?php
-require_once './../php/api.php';
-require_once './../php/funciones.php';
+    require_once './../php/api.php';
+    require_once './../php/funciones.php';
 
-$alimentos = llamarApi('GET', API_URL);
+    $alimentos = llamarApi('GET', API_URL);
 
-if (!is_array($alimentos)) {
-    $alimentos = [];
-}
+    if (!is_array($alimentos)) {
+        $alimentos = [];
+    }
 
-mostrarHeader("RedAlimento - Listado de Alimentos");
+    mostrarHeader("RedAlimento - Listado de Alimentos");
 
 ?>
 <h2>Listado de Alimentos Donados</h2>

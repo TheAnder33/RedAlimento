@@ -42,8 +42,8 @@
         </div>
     </p>
     <p>
-        <label for="fecha_caducidad"><b>Fecha de caducidad:</b></label>
-        <input type="date" id="fecha_caducidad" name="fecha_caducidad">
+        <label for="fecha_caducidad"><b>Fecha de caducidad (DD/MM/AAAA):</b></label>
+        <input type="text" id="fecha_caducidad" name="fecha_caducidad" placeholder="25/12/2026" maxlength="10" autocomplete="off">
     </p>
     <p>
         <label><b>Tipo de conservación:</b></label>

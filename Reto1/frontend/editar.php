@@ -12,11 +12,20 @@
     $alimento = llamarApi('GET', API_URL . '/' . $id);
 
     if (!is_array($alimento) || isset($alimento['error'])) {
-        echo "<h2>Error: Alimento no encontrado</h2>";
-        echo '<a href="alimentos.php">Volver al listado</a>';
+        mostrarHeader("RedAlimento - Error");
+        echo "<h2>Error 404: Alimento no encontrado</h2>";
+        echo '<p><a href="alimentos.php" class="btn">Volver al listado</a></p>';
+        mostrarFooter();
         exit;
     }
     
+    // La API guarda la fecha como AAAA-MM-DD; en el formulario se muestra como DD/MM/AAAA
+    $fechaMostrar = '';
+    if (!empty($alimento['fecha_caducidad'])) {
+        $d = DateTime::createFromFormat('Y-m-d', $alimento['fecha_caducidad']);
+        $fechaMostrar = $d ? $d->format('d/m/Y') : $alimento['fecha_caducidad'];
+    }
+
     mostrarHeader("RedAlimento - Modificar Alimento");
 ?>
 
@@ -59,8 +68,8 @@
         </div>
     </p>
     <p>
-        <label>Fecha de Caducidad:</label>
-        <input type="date" name="fecha_caducidad" value="<?= htmlspecialchars($alimento['fecha_caducidad']) ?>">
+        <label>Fecha de Caducidad (DD/MM/AAAA):</label>
+        <input type="text" name="fecha_caducidad" value="<?= htmlspecialchars($fechaMostrar) ?>" placeholder="25/12/2026" maxlength="10" autocomplete="off">
     </p>
     <p>
         <label><b>Tipo de conservación:</b></label>

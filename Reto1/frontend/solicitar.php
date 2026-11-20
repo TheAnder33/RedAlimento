@@ -49,6 +49,14 @@
         <input type="text" name="email" id="email">
     </p>
     <p>
+        <label for="importancia">Nivel de importancia / urgencia (1 al 10):</label>
+        <div class="range-container">
+            <input type="range" name="importancia" id="importancia" min="1" max="10" value="5" 
+                   oninput="document.getElementById('valImportancia').innerText = this.value">
+            <span id="valImportancia" class="range-value-badge">5</span>
+        </div>
+    </p>
+    <p>
         <label for="observaciones">Observaciones:</label><br>
         <textarea name="observaciones" id="observaciones" rows="4"
         ></textarea>

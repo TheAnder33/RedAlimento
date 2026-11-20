@@ -15,6 +15,7 @@
     $cantidad = isset($_POST['cantidad']) ? trim(strip_tags($_POST['cantidad'])) : "";
     $solicitante = isset($_POST['solicitante']) ? trim(strip_tags($_POST['solicitante'])) : "";
     $email = isset($_POST['email']) ? trim(strip_tags($_POST['email'])) : "";
+    $importancia = isset($_POST['importancia']) ? trim(strip_tags($_POST['importancia'])) : "1";
     $observaciones = isset($_POST['observaciones']) ? trim(strip_tags($_POST['observaciones'])) : "";
 
     $hayError = false;
@@ -59,6 +60,7 @@
             'cantidad' => (float)$cantidad,
             'solicitante' => $solicitante,
             'email' => $email,
+            'importancia' => (int)$importancia,
             'observaciones' => $observaciones
         ];
 
@@ -80,6 +82,7 @@
             echo "<div class='success'>";
             echo "<h1>Solicitud registrada correctamente</h1>";
             echo "<p>Número de solicitud: <strong>" . (int)$resultado['id'] . "</strong></p>";
+            echo "<p>Importancia asignada: <strong>" . (int)$resultado['importancia'] . "</strong></p>";
             echo "<p>Estado: <strong>Pendiente</strong></p>";
             echo "</div>";
             echo '<div class="btn-container"><a href="../index.html" class="btn">Volver</a></div>';

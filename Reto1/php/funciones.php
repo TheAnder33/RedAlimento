@@ -19,8 +19,8 @@ function mostrarHeader($titulo = "RedAlimento", $cssPath = "../css/alimentos.css
     <header class="main-header">
         <div class="header-container">
             <div class="logo-container">
-                <src class="logo" src="logo.png" alt="RedAlimento">
-                <span class="nombre">RedAlimento</span>
+            <a href="./../index.html"><img class="logo" src="./../src/logo.jpeg" alt="RedAlimento"></a>
+            <span class="nombre">RedAlimento</span>
             </div>
             <nav class="navbar">
                 <ul class="nav-links">

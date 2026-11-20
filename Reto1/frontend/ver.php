@@ -22,7 +22,7 @@
     }
     if (!$alimento) {
         mostrarHeader("RedAlimento - Error");
-        echo "<h2>Error: Alimento no encontrado</h2>";
+        echo "<h2>Error 404: Alimento no encontrado</h2>";
         echo '<p><a href="alimentos.php" class="btn">Volver al listado</a></p>';
         mostrarFooter();
         exit;
