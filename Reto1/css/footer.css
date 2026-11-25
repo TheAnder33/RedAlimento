@@ -1,0 +1,55 @@
+footer {
+    background-color: #1e293b;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+footer h3 {
+    margin-top: 0;
+    color: #f8fafc;
+}
+footer p {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+.site-footer {
+    position: relative;
+}
+.audio-footer-izq {
+    margin-top: 12px;
+    text-align: left;
+}
+.audio-footer-izq audio {
+    height: 36px;
+    max-width: 260px;
+    border-radius: 999px;
+    filter: invert(90%) hue-rotate(180deg);
+    opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+    footer {
+        padding: 22px 18px;
+    }
+    .audio-footer-izq {
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    footer {
+        padding: 18px 14px;
+    }
+    footer p {
+        font-size: 0.85rem;
+    }
+    .audio-footer-izq {
+        text-align: center;
+        margin-top: 14px;
+    }
+    .audio-footer-izq audio {
+        max-width: 100%;
+        width: 240px;
+    }
+}

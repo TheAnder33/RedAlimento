@@ -1,39 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RedAlimento</title>
-    <link rel="stylesheet" type="text/css" href="./css/styles.css">
-</style>
+    <title>RedAlimento - Inicio</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/botones.css">
+    <link rel="stylesheet" href="./css/footer.css">
 </head>
-<header class="main-header">
-    <div class="header-container">
-        <div class="logo-container">
-            <img class="logo" src="logo.png" alt="RedAlimento" >
-            <spam class="nombre">RedAlimento</spam>
-        </div>
-        <nav class="navbar">
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            
-            <li class="submenu">
-                <a href="#" class="desplegable">Formularios <span class="flecha">&#9662;</span></a>
-                <ul class="menu-desplegable">
-                    <li><a href="./frontend/donar.php">Donar</a></li>
-                    <li><a href="./frontend/solicitar.php">Solicitar</a></li>
-                </ul>
-            </li>
-
-            <li><a href="./frontend/alimentos.php">Alimentos</a></li>
-        </ul>
-    </nav>
-    </div>
-</header>
 <body>
-    
-</body>
-<footer>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <a href="./index.html"><img class="logo" src="./src/img/logo.jpeg" alt="RedAlimento"></a>
+                <span class="nombre">RedAlimento</span>
+            </div>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    
+                    <li class="submenu">
+                        <a href="#" class="desplegable">Formularios <span class="flecha">&#9662;</span></a>
+                        <ul class="menu-desplegable">
+                            <li><a href="./frontend/donar.php">Donar</a></li>
+                            <li><a href="./frontend/solicitar.php">Solicitar</a></li>
+                        </ul>
+                    </li>
 
-</footer>
+                    <li><a href="./frontend/alimentos.php">Alimentos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="banner-section">
+            <h1>Dona alimentos, ayuda a quienes lo necesitan</h1>
+            <p>
+                En RedAlimento facilitamos las donaciones de alimentos y ayudamos a reducir el desperdicio alimentario. Tu pequeña aportación marca una gran diferencia.
+            </p>
+            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 25px;">
+                <a href="frontend/donar.php" class="btn-solicitar" style="padding: 12px 24px; font-size: 15px;">Donar alimentos</a>
+                <a href="frontend/alimentos.php" class="btn-edit" style="padding: 12px 24px; font-size: 15px;">Ver alimentos</a>
+            </div>
+        </section>
+
+        <section id="funciones">
+            <h2>¿Qué puedes hacer en RedAlimento?</h2>
+            <div class="grid-features">
+                <article class="card-feature">
+                    <div>
+                        <h3>Donar alimentos</h3>
+                        <p>Publica los alimentos que quieres donar para que otras personas puedan solicitarlos fácilmente.</p>
+                    </div>
+                    <a href="frontend/donar.php">Ir a Donar →</a>
+                </article>
+                <article class="card-feature">
+                    <div>
+                        <h3>Consultar alimentos</h3>
+                        <p>Revisa el listado de alimentos disponibles, sus tipos, categorías y cantidades en tiempo real.</p>
+                    </div>
+                    <a href="frontend/alimentos.php">Consultar lista →</a>
+                </article>
+                <article class="card-feature">
+                    <div>
+                        <h3>Solicitar alimentos</h3>
+                        <p>Selecciona un alimento disponible y envía una solicitud formal indicando la cantidad que necesitas.</p>
+                    </div>
+                    <a href="frontend/solicitar.php">Solicitar ahora →</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="ods">
+            <h2>Nuestros Objetivos de Desarrollo Sostenible</h2>
+
+            <div class="grid-features">
+
+                <article class="card-feature">
+                    <h3>ODS 2 - Hambre cero</h3>
+                    <p>Facilitamos el acceso a recursos alimentarios básicos mediante redes de donación solidaria.</p>
+                    <canvas id="ods2" class="img-ods" width="1024" height="1024">
+                        ODS 2 Hambre Cero
+                    </canvas>
+                </article>
+
+                <article class="card-feature">
+                    <h3>ODS 12 - Consumo responsable</h3>
+                    <p>Buscamos activamente reducir el desperdicio alimentario aprovechando excedentes de forma eficiente.</p>
+                    <canvas id="ods12" class="img-ods" width="1024" height="1024">
+                        ODS 12 Consumo Responsable
+                    </canvas>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="galeria">
+            <h2>Compartir alimentos es compartir felicidad</h2>
+            <p>Cada aportación solidaria abre una nueva oportunidad para ayudar a nuestra comunidad.</p>
+            <div class="galeria-grid">
+                <img src="./src/img/banco_alimentos.jpg" alt="Nuestros almacenes">
+                <img src="./src/img/empresa.jpeg" alt="Nosotros">
+                <img src="./src/img/banco_alimentos2.jpeg" alt="Personas recibiendo alimentos">
+            </div>
+        </section>
+
+        <section class="video-section">
+            <h2>¿Qué es un Banco de Alimentos?</h2>
+            <p>Descubre cómo trabajamos cada día para recolectar, almacenar y repartir esperanza entre quienes más lo necesitan.</p>
+            
+            <div class="video-container">
+                <video controls>
+                    <source src="./src/videos/¿Qué es un Banco de Alimentos.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de vídeos.
+                </video> 
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <h3>RedAlimento</h3>
+        <p>Proyecto educativo relacionado con los Objetivos de Desarrollo Sostenible.</p>
+        <p>ODS 2 - Hambre cero | ODS 12 - Consumo responsable</p>
+        <p style="margin-top: 10px; font-weight: bold; color: #cbd5e1;">2026 - RedAlimento</p>
+
+        <div class="audio-footer-izq" aria-label="Reproductor de música">
+            <audio controls preload="metadata">
+                <source src="./src/audios/lo-fi_musica.mp3" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+        </div>
+    </footer>
+
+    <script src="./js/canvas.js"></script>
+</body>
 </html>
