@@ -126,7 +126,7 @@ app.get('/api/solicitudes/:id', (req, res) => {
     res.status(200).json(solicitud);
 });
 
-app.post('/api/solicitudes',(req, res) => {
+app.post('/api/solicitudes', (req, res) => {
     const {
         alimento_id,
         cantidad,
@@ -143,14 +143,17 @@ app.post('/api/solicitudes',(req, res) => {
             error: 'Error 404 : El alimento no existe'
         });
     }
-    const cantidadSolicitada = Number(cantidad);
 
-    //para comprobar la cantidad que haya
-    if(
-        !Number.isFinite(cantidadSolicitada) || cantidadSolicitada <=0 || cantidadSolicitada > Number(alimento.cantidad)
+    const cantidadSolicitada = Number(cantidad);
+    const disponible = Number(alimento.cantidad);
+
+    if (
+        !Number.isFinite(cantidadSolicitada) ||
+        cantidadSolicitada <= 0 ||
+        cantidadSolicitada > disponible
     ) {
         return res.status(400).json({
-            error: 'Error 400 : La cantidad que has solicitaddo no es valida'
+            error: 'Error 400 : La cantidad que has solicitado no es válida'
         });
     }
 
@@ -160,24 +163,32 @@ app.post('/api/solicitudes',(req, res) => {
         !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     ) {
         return res.status(400).json({
-            error: 'Error 400 : No valido'
-        })
+            error: 'Error 400 : No válido'
+        });
     }
 
-    const nuevaSolicitudd = {
+    alimento.cantidad = Math.round((disponible - cantidadSolicitada) * 1000) / 1000;
+
+    if (alimento.cantidad <= 0) {
+        const indice = registros.findIndex(r => r.id === alimento.id);
+        registros.splice(indice, 1);
+    }
+
+    const nuevaSolicitud = {
         id: nextSolicitudID++,
-        alimento_id: alimento_id,
+        alimento_id: alimento.id,
         alimento: alimento.alimento,
         cantidad: cantidadSolicitada,
         unidad: alimento.unidad,
         solicitante,
         email,
         importancia: importancia ? Number(importancia) : 1,
-        observaciones: observaciones || '', estado: 'pendiente'
+        observaciones: observaciones || '',
+        estado: 'pendiente'
     };
-    solicitudes.push(nuevaSolicitudd);
+    solicitudes.push(nuevaSolicitud);
 
-    res.status(201).json(nuevaSolicitudd);
+    res.status(201).json(nuevaSolicitud);
 });
 
 app.delete('/api/registros/:id', (req, res) => {

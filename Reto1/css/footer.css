@@ -28,7 +28,6 @@ footer p {
     opacity: 0.9;
 }
 
-/* TABLET */
 @media (max-width: 900px) {
     footer {
         padding: 22px 18px;
@@ -38,7 +37,6 @@ footer p {
     }
 }
 
-/* MÓVIL */
 @media (max-width: 600px) {
     footer {
         padding: 18px 14px;

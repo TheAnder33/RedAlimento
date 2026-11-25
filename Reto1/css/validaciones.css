@@ -36,7 +36,6 @@
     margin-top: auto;
 }
 
-/* TABLET */
 @media (max-width: 900px) {
     .resultado-box {
         margin: 24px 16px;
@@ -45,7 +44,6 @@
     }
 }
 
-/* MÓVIL */
 @media (max-width: 600px) {
     .resultado-box {
         margin: 16px 10px;

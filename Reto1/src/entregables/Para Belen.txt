@@ -1,0 +1,31 @@
+UBICACIÓN DE LOS FORMULARIOS Y LAS VALIDACIONES - RedAlimento
+=============================================================
+
+La aplicación tiene 3 partes: 
+    · Las páginas php -> frontend/ (solo hay php para las funciones, y por si el array está vacio)
+    · Las validaciones  |
+    · Funciones         | -> php/
+
+
+Arhcivos PHP 
+    
+    -> frontend/ (solo hay php para las funciones, y por si el array está vacio)
+        == FORMULARIOS ==
+            -> donar.php 
+            -> solicitar.php
+            -> editar.php
+        == VISUALIZACION ==
+            -> alimentos.php
+            -> ver.php
+
+    -> php/
+        -> api.php
+
+        -> funciones.php : Para hacer el header, footer, y las imágenes por categorias
+        
+        == VALIDACIONES ==
+            -> actualizar.php
+            -> eliminar.php
+            -> funciones.php
+            -> guardar_solicitud.php
+            -> guardar.php 

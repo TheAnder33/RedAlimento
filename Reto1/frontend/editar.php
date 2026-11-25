@@ -57,13 +57,13 @@
         <label><b>Unidad:</b></label>
         <div class="radio-group">
             <label class="radio-option">
-                <input type="radio" id="kg" name="unidad" value="kg"> kg
+                <input type="radio" id="kg" name="unidad" value="kg" <?= ($alimento['unidad'] ?? '') === 'kg' ? 'checked' : '' ?>> kg
             </label>
             <label class="radio-option">
-                <input type="radio" id="unidades" name="unidad" value="unidades"> Unidades
+                <input type="radio" id="unidades" name="unidad" value="unidades" <?= ($alimento['unidad'] ?? '') === 'unidades' ? 'checked' : '' ?>> Unidades
             </label>
             <label class="radio-option">
-                <input type="radio" id="paquetes" name="unidad" value="paquetes"> Paquetes
+                <input type="radio" id="paquetes" name="unidad" value="paquetes" <?= ($alimento['unidad'] ?? '') === 'paquetes' ? 'checked' : '' ?>> Paquetes
             </label>
         </div>
     </p>
@@ -75,13 +75,13 @@
         <label><b>Tipo de conservación:</b></label>
         <div class="radio-group">
             <label class="radio-option">
-                <input type="radio" id="ambiente" name="conservacion" value="ambiente"> Ambiente
+                <input type="radio" id="ambiente" name="conservacion" value="ambiente" <?= ($alimento['conservacion'] ?? '') === 'ambiente' ? 'checked' : '' ?>> Ambiente
             </label>
             <label class="radio-option">
-                <input type="radio" id="refrigerado" name="conservacion" value="refrigerado"> Refrigerado
+                <input type="radio" id="refrigerado" name="conservacion" value="refrigerado" <?= ($alimento['conservacion'] ?? '') === 'refrigerado' ? 'checked' : '' ?>> Refrigerado
             </label>
             <label class="radio-option">
-                <input type="radio" id="congelado" name="conservacion" value="congelado"> Congelado
+                <input type="radio" id="congelado" name="conservacion" value="congelado" <?= ($alimento['conservacion'] ?? '') === 'congelado' ? 'checked' : '' ?>> Congelado
             </label>
         </div>
     </p>

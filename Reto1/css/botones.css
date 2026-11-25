@@ -107,7 +107,6 @@ form .btn-cancelar-centrado:hover {
     transform: scale(1.02);
 }
 
-/* TABLET */
 @media (max-width: 900px) {
     .acciones-container {
         flex-wrap: wrap;
@@ -119,7 +118,6 @@ form .btn-cancelar-centrado:hover {
     }
 }
 
-/* MÓVIL */
 @media (max-width: 600px) {
     .acciones-container {
         width: 100%;

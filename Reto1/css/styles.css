@@ -251,7 +251,6 @@ p {
     margin: 15px auto 0;
 }
 
-/* TABLET */
 @media (max-width: 900px) {
     main {
         padding: 28px 16px;
@@ -275,7 +274,6 @@ p {
     }
 }
 
-/* MÓVIL */
 @media (max-width: 600px) {
     main {
         padding: 18px 12px;
