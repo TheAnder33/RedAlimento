@@ -19,7 +19,7 @@ function mostrarHeader($titulo = "RedAlimento", $cssPath = "../css/alimentos.css
     <header class="main-header">
         <div class="header-container">
             <div class="logo-container">
-            <a href="./../index.html"><img class="logo" src="./../src/logo.jpeg" alt="RedAlimento"></a>
+            <a href="./../index.html"><img class="logo" src="./../src/img/logo.jpeg" alt="RedAlimento"></a>
             <span class="nombre">RedAlimento</span>
             </div>
             <nav class="navbar">
@@ -75,20 +75,20 @@ function obtenerImagenPorCategoria($categoria) {
 
     switch ($cat) {
         case 'lacteos':
-            return '../src/categorias/lacteos.jpeg';
+            return '../src/img/categorias/lacteos.jpeg';
         case 'carnes_pescados_huevos':
-            return '../src/categorias/carne_pescado_huevo.jpeg';
+            return '../src/img/categorias/carne_pescado_huevo.jpeg';
         case 'tuberculos_legumbres_frutossecos':
-            return '../src/categorias/tuberculos_legumbres_frutos_secos.jpg';
+            return '../src/img/categorias/tuberculos_legumbres_frutos_secos.jpg';
         case 'verduras_hortalizas':
-            return '../src/categorias/verduras_hortalizas.jpg';
+            return '../src/img/categorias/verduras_hortalizas.jpg';
         case 'frutas':
-            return '../src/categorias/frutas.jpeg';
+            return '../src/img/categorias/frutas.jpeg';
         case 'pan_pasta_cereales_azucar':
-            return '../src/categorias/pasta_pan_cereales.jpeg';
+            return '../src/img/categorias/pasta_pan_cereales.jpeg';
         case 'grasas_aceites_mantequillas':
-            return '../src/categorias/grasas_aceites_mantequilla.jpeg';
+            return '../src/img/categorias/grasas_aceites_mantequilla.jpeg';
         default:
-            return '../src/categorias/default.png';
+            return '../src/img/categorias/default.png';
     }
 }

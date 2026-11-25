@@ -17,6 +17,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -33,6 +34,7 @@ body {
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     border: 1px solid var(--border-color);
+    box-sizing: border-box;
 }
 main {
     max-width: 1100px;
@@ -40,6 +42,7 @@ main {
     margin: 0 auto;
     padding: 40px 20px;
     flex: 1;
+    box-sizing: border-box;
 }
 h1, h2 {
     color: var(--primary);
@@ -188,6 +191,7 @@ p {
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     border: 1px solid var(--border-color);
+    box-sizing: border-box;
 }
 .detalle-contenido {
     display: flex;
@@ -245,4 +249,95 @@ p {
     max-width: 200px; 
     height: auto;
     margin: 15px auto 0;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+    main {
+        padding: 28px 16px;
+    }
+    .container, .resultado-box, .detalle-box {
+        margin: 24px 16px;
+        padding: 28px;
+    }
+    .banner-section {
+        padding: 45px 24px;
+        margin-bottom: 32px;
+    }
+    .banner-section h1 {
+        font-size: 2rem;
+    }
+    .video-container {
+        padding-bottom: 50%;
+    }
+    .detalle-contenido {
+        gap: 24px;
+    }
+}
+
+/* MÓVIL */
+@media (max-width: 600px) {
+    main {
+        padding: 18px 12px;
+    }
+    .container, .resultado-box, .detalle-box {
+        margin: 16px 10px;
+        padding: 20px 16px;
+        border-radius: 10px;
+    }
+    h1, h2 {
+        font-size: 1.35rem;
+    }
+    .banner-section {
+        padding: 32px 16px;
+        margin-bottom: 24px;
+    }
+    .banner-section h1 {
+        font-size: 1.6rem;
+    }
+    .banner-section p {
+        font-size: 0.98rem;
+    }
+    .grid-features, .galeria-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 28px;
+    }
+    .card-feature {
+        padding: 20px;
+    }
+    .card-feature img {
+        max-width: 200px;
+        height: 200px;
+    }
+    .galeria-grid img {
+        height: 190px;
+    }
+    .video-section {
+        padding: 24px 16px;
+        margin-top: 28px;
+        margin-bottom: 28px;
+    }
+    .video-container {
+        padding-bottom: 56.25%;
+    }
+    .detalle-contenido {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .detalle-info {
+        min-width: 100%;
+    }
+    .detalle-imagen-card {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 18px;
+    }
+    .detalle-imagen-card img {
+        width: 130px;
+        height: 130px;
+    }
+    .detalle-acciones {
+        margin-top: 24px;
+    }
 }

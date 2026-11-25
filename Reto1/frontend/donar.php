@@ -73,7 +73,7 @@
     </p>
     <div class="form-acciones">
         <input type="submit" value="Enviar" name="enviar" class="btn-solicitar" style="border: none; cursor: pointer;">
-        <input type="reset" value="Reset" name="Reset" class="btn-delete" style="border: none; cursor: pointer;">
+        <input type="reset" value="Limpiar" name="Reset" class="btn-delete" style="border: none; cursor: pointer;">
     </div>
     <div>
         <a href="../index.html" class="btn-cancelar-centrado">Cancelar</a>

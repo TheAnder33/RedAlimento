@@ -29,12 +29,12 @@
         <tbody>
             <?php foreach ($alimentos as $item): ?>
                 <tr>
-                    <td><?= htmlspecialchars($item['id'] ?? '-') ?></td>
-                    <td><?= htmlspecialchars($item['alimento'] ?? 'Sin nombre') ?></td>
-                    <td><?= htmlspecialchars($item['tipo'] ?? $item['categoria'] ?? '-') ?></td>
-                    <td><?= htmlspecialchars($item['cantidad'] ?? '-') ?></td>
-                    <td><?= htmlspecialchars($item['caducidad'] ?? $item['fecha_caducidad'] ?? '-') ?></td>
-                    <td>
+                    <td data-label="ID"><?= htmlspecialchars($item['id'] ?? '-') ?></td>
+                    <td data-label="Nombre / Descripción"><?= htmlspecialchars($item['alimento'] ?? 'Sin nombre') ?></td>
+                    <td data-label="Tipo / Categoría"><?= htmlspecialchars($item['tipo'] ?? $item['categoria'] ?? '-') ?></td>
+                    <td data-label="Cantidad"><?= htmlspecialchars($item['cantidad'] ?? '-') ?></td>
+                    <td data-label="Fecha de Caducidad"><?= htmlspecialchars($item['caducidad'] ?? $item['fecha_caducidad'] ?? '-') ?></td>
+                    <td data-label="Acciones">
                         <div class="acciones-container">
                             <a class="btn-ver" href="ver.php?id=<?= $item['id'] ?>">Ver</a>
                             <a class="btn-solicitar" href="solicitar.php?alimento_id=<?= (int)$item['id']?>">Solicitar</a>

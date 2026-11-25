@@ -19,7 +19,7 @@
         exit;
     }
     
-    // La API guarda la fecha como AAAA-MM-DD; en el formulario se muestra como DD/MM/AAAA
+
     $fechaMostrar = '';
     if (!empty($alimento['fecha_caducidad'])) {
         $d = DateTime::createFromFormat('Y-m-d', $alimento['fecha_caducidad']);
@@ -98,7 +98,7 @@
         <textarea name="descripcion"><?= htmlspecialchars($alimento['descripcion']) ?></textarea>
     </p>
     <div class="form-acciones">
-        <input type="submit" value="Guardar Cambios" class="btn-edit" style="border: none; cursor: pointer;">
+        <input type="submit" value="Guardar Cambios" class="btn-solicitar" style="border: none; cursor: pointer;">
     </div>
     <div>
         <a href="alimentos.php" class="btn-cancelar-centrado">Cancelar</a>

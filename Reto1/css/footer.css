@@ -27,3 +27,31 @@ footer p {
     filter: invert(90%) hue-rotate(180deg);
     opacity: 0.9;
 }
+
+/* TABLET */
+@media (max-width: 900px) {
+    footer {
+        padding: 22px 18px;
+    }
+    .audio-footer-izq {
+        text-align: center;
+    }
+}
+
+/* MÓVIL */
+@media (max-width: 600px) {
+    footer {
+        padding: 18px 14px;
+    }
+    footer p {
+        font-size: 0.85rem;
+    }
+    .audio-footer-izq {
+        text-align: center;
+        margin-top: 14px;
+    }
+    .audio-footer-izq audio {
+        max-width: 100%;
+        width: 240px;
+    }
+}

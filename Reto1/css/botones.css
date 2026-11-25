@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
 .btn-solicitar, 
 .btn-edit, 
@@ -10,7 +10,7 @@
 .btn {
     color: white; 
     text-decoration: none;
-    padding: 8px 16px; 
+    padding: 7px 11px; 
     border-radius: 6px; 
     font-size: 13px; 
     font-weight: bold; 
@@ -19,10 +19,11 @@
     border: none;
     cursor: pointer;
     text-align: center;
+    white-space: nowrap;
 }
-.btn-solicitar { background: #34495e; }
+.btn-solicitar { background: #1e293b; }
 .btn-edit { background: #5B80A4; }
-.btn-delete { background: #962d22; }
+.btn-delete { background: #2c3e50; }
 .btn { background: #4A6987; }
 
 .btn-solicitar:hover, 
@@ -48,6 +49,7 @@ form .btn {
     box-sizing: border-box;
     text-align: center;
     font-size: 1rem;
+    white-space: normal;
 }
 form .form-acciones {
     display: flex;
@@ -85,10 +87,10 @@ form .btn-cancelar-centrado:hover {
     margin-top: 20px;
 }
 .btn-ver { 
-    background: #16a085; 
+    background: #3b6e8c; 
     color: white; 
     text-decoration: none;
-    padding: 8px 16px; 
+    padding: 7px 11px; 
     border-radius: 6px; 
     font-size: 13px; 
     font-weight: bold; 
@@ -97,9 +99,50 @@ form .btn-cancelar-centrado:hover {
     border: none;
     cursor: pointer;
     text-align: center;
+    white-space: nowrap;
 }
 .btn-ver:hover {
     text-decoration: underline;
     filter: brightness(0.9);
     transform: scale(1.02);
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+    .acciones-container {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .btn-container {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+}
+
+/* MÓVIL */
+@media (max-width: 600px) {
+    .acciones-container {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .acciones-container .btn-solicitar,
+    .acciones-container .btn-edit,
+    .acciones-container .btn-delete,
+    .acciones-container .btn,
+    .acciones-container .btn-ver {
+        flex: 1 1 calc(50% - 6px);
+        box-sizing: border-box;
+        padding: 7px 12px;
+        font-size: 12px;
+    }
+    .btn-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        margin-top: 16px;
+    }
+    form .form-acciones {
+        margin-top: 18px;
+    }
 }
